@@ -19,8 +19,8 @@ public class Day {
     private Long id;
     private String bodyPart;
 
-    @ManyToOne
-    @JoinColumn
-    private Exercise exercise;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "day_id")
+    private List<Exercise> exercises;
 
 }
