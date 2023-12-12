@@ -29,17 +29,17 @@ public class DataInitializer implements CommandLineRunner {
     private void initializeData() {
 
         // Chest Exercises
-        Exercise chest_ex1 = new Exercise(1L, "Chest Press Machine", 12, 100.0, true); // Changed
+        Exercise chest_ex1 = new Exercise(1L, "Chest Press Machine", 12, 100.0, true);
         Exercise chest_ex2 = new Exercise(2L, "Inclined Bench Press", 12, 30.0, false);
-        Exercise chest_ex3 = new Exercise(3L, "Chest Flys Machine", 15, 25.0, true); // Changed
+        Exercise chest_ex3 = new Exercise(3L, "Chest Flys Machine", 15, 25.0, true);
         Exercise chest_ex4 = new Exercise(4L, "Push-Ups", 20, 0.0, false);
         Exercise chest_ex5 = new Exercise(5L, "Dumbbell Pullover", 12, 35.0, false);
 
         // Arms Exercises
         Exercise arms_ex1 = new Exercise(6L, "Bicep Curls", 15, 20.0, false);
-        Exercise arms_ex2 = new Exercise(7L, "Tricep Dips Machine", 12, 0.0, true); // Changed
+        Exercise arms_ex2 = new Exercise(7L, "Tricep Dips Machine", 12, 0.0, true);
         Exercise arms_ex3 = new Exercise(8L, "Hammer Curls", 12, 25.0, false);
-        Exercise arms_ex4 = new Exercise(9L, "Cable Skull Crushers", 10, 40.0, true); // Changed
+        Exercise arms_ex4 = new Exercise(9L, "Cable Skull Crushers", 10, 40.0, true);
         Exercise arms_ex5 = new Exercise(10L, "Pushdowns", 15, 35.0, false);
 
         // Legs Exercises

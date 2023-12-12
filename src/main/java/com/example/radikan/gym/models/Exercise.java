@@ -18,5 +18,5 @@ public class Exercise {
     private String name;
     private int repetitions;
     private double weight;
-    private boolean is_machine;
+    private boolean machine;
 }
