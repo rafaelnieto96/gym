@@ -33,8 +33,6 @@ public class ExerciseService {
         return exerciseRepository.save(existingExercise);
     }
 
-
-
     public List<Exercise> getAllExercises() {
         return exerciseRepository.findAll();
     }
