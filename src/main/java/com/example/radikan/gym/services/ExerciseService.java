@@ -49,4 +49,8 @@ public class ExerciseService {
         exerciseRepository.deleteById(id);
     }
 
+    public void deleteAllExercises() {
+        exerciseRepository.deleteAll();
+    }
+
 }

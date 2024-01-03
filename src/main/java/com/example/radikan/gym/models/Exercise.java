@@ -19,4 +19,6 @@ public class Exercise {
     private int repetitions;
     private double weight;
     private boolean machine;
+    @Column(name = "exercise_day")
+    private String day;
 }

@@ -31,7 +31,7 @@ class ExerciseServiceTest {
     @DisplayName("Add Exercise")
     void addExercise() {
         // Given
-        Exercise exerciseToAdd = new Exercise(1L, "Test Exercise", 1, 100.0, true);
+        Exercise exerciseToAdd = new Exercise(1L, "Test Exercise", 1, 100.0, true, "Monday");
         when(exerciseRepository.save(exerciseToAdd)).thenReturn(exerciseToAdd);
 
         // When
@@ -47,8 +47,8 @@ class ExerciseServiceTest {
     void updateExercise() {
         // Given
         long exerciseId = 1L;
-        Exercise updatedExercise = new Exercise(1L, "Updated Test Exercise", 2, 120.0, false);
-        Exercise existingExercise = new Exercise(1L, "Existing Exercise", 1, 100.0, true);
+        Exercise updatedExercise = new Exercise(1L, "Updated Test Exercise", 2, 120.0, false, "Monday");
+        Exercise existingExercise = new Exercise(1L, "Existing Exercise", 1, 100.0, true, "Monday");
         when(exerciseRepository.findById(exerciseId)).thenReturn(Optional.of(existingExercise));
         when(exerciseRepository.save(existingExercise)).thenReturn(existingExercise);
 
@@ -66,8 +66,8 @@ class ExerciseServiceTest {
     void getAllExercises() {
         // Given
         List<Exercise> exercises = new ArrayList<>();
-        exercises.add(new Exercise(1L, "Chest Press Machine", 12, 100.0, true));
-        exercises.add(new Exercise(2L, "Inclined Bench Press", 12, 30.0, false));
+        exercises.add(new Exercise(1L, "Chest Press Machine", 12, 100.0, true, "Monday"));
+        exercises.add(new Exercise(2L, "Inclined Bench Press", 12, 30.0, false, "Monday"));
         when(exerciseRepository.findAll()).thenReturn(exercises);
 
         // When
@@ -83,7 +83,7 @@ class ExerciseServiceTest {
     void getExerciseByName() {
         // Given
         String exerciseName = "Test Exercise";
-        List<Exercise> exercises = Collections.singletonList(new Exercise(1L, "Test Exercise", 1, 100.0, true));
+        List<Exercise> exercises = Collections.singletonList(new Exercise(1L, "Test Exercise", 1, 100.0, true, "Monday"));
         when(exerciseRepository.findByName(exerciseName)).thenReturn(Optional.of(exercises));
 
         // When
