@@ -24,7 +24,7 @@ public class ExerciseController {
         return new ResponseEntity<>(exerciseService.addExercise(exercise), HttpStatus.CREATED);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<?> updateExercise(@PathVariable long id, @RequestBody Exercise updatedExercise) {
         Exercise updated = exerciseService.updateExercise(id, updatedExercise);
         if (updated != null) {
@@ -39,21 +39,21 @@ public class ExerciseController {
     public ResponseEntity<?> getAllExercises() {
         return new ResponseEntity<>(exerciseService.getAllExercises(), HttpStatus.OK);
     }
-
-    @GetMapping("/{name}")
-    public ResponseEntity<?> getExerciseByName(@RequestBody String name) {
+    @GetMapping("/search/{name}")
+    public ResponseEntity<?> getExerciseByName(@PathVariable String name) {
         return new ResponseEntity<>(exerciseService.getExerciseByName(name), HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteExercise(@PathVariable long id) {
         exerciseService.deleteExercise(id);
         return new ResponseEntity<>("Exercise deleted successfully", HttpStatus.OK);
     }
 
     @DeleteMapping("/deleteAll")
-    public ResponseEntity<?> deleteAllExercises() {
+    public ResponseEntity<String> deleteAllExercises() {
         exerciseService.deleteAllExercises();
         return new ResponseEntity<>("All exercises deleted successfully", HttpStatus.OK);
     }
+
 }
