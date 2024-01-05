@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/exercises")
-@CrossOrigin(origins = "http://localhost:4200")
 public class ExerciseController {
 
     private final ExerciseService exerciseService;
@@ -51,7 +50,7 @@ public class ExerciseController {
     }
 
     @DeleteMapping("/deleteAll")
-    public ResponseEntity<String> deleteAllExercises() {
+    public ResponseEntity<?> deleteAllExercises() {
         exerciseService.deleteAllExercises();
         return new ResponseEntity<>("All exercises deleted successfully", HttpStatus.OK);
     }

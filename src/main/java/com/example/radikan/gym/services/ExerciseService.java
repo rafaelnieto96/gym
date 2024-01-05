@@ -26,9 +26,10 @@ public class ExerciseService {
                 .orElseThrow(() -> new NoSuchElementException("Exercise not found"));
 
         existingExercise.setName(updatedExercise.getName());
+        existingExercise.setSeries(updatedExercise.getSeries());
         existingExercise.setRepetitions(updatedExercise.getRepetitions());
         existingExercise.setWeight(updatedExercise.getWeight());
-        existingExercise.setMachine(updatedExercise.isMachine());
+        existingExercise.setDay(updatedExercise.getDay());
 
         return exerciseRepository.save(existingExercise);
     }

@@ -16,9 +16,9 @@ public class Exercise {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    private int series;
     private int repetitions;
     private double weight;
-    private boolean machine;
     @Column(name = "exercise_day")
     private String day;
 }
