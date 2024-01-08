@@ -8,6 +8,9 @@ import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/exercises")
 public class ExerciseController {
@@ -44,15 +47,19 @@ public class ExerciseController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteExercise(@PathVariable long id) {
+    public ResponseEntity<Map<String, String>> deleteExercise(@PathVariable long id) {
         exerciseService.deleteExercise(id);
-        return new ResponseEntity<>("Exercise deleted successfully", HttpStatus.OK);
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Exercise deleted successfully");
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteAll")
-    public ResponseEntity<?> deleteAllExercises() {
-        exerciseService.deleteAllExercises();
-        return new ResponseEntity<>("All exercises deleted successfully", HttpStatus.OK);
-    }
+@DeleteMapping("/deleteAll")
+public ResponseEntity<Map<String, String>> deleteAllExercises() {
+    exerciseService.deleteAllExercises();
+    Map<String, String> response = new HashMap<>();
+    response.put("message", "All exercises deleted successfully");
+    return new ResponseEntity<>(response, HttpStatus.OK);
+}
 
 }
