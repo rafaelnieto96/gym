@@ -30,7 +30,7 @@ class ExerciseControllerTest {
     @DisplayName("GIVEN a valid exercise WHEN addExercise method is called THEN return the exercise and HTTP Created status")
     void addExercise() {
         // Given
-        Exercise validExercise = new Exercise(1L, "Test Exercise", 1, 100.0, true, "Monday");
+        Exercise validExercise = new Exercise(1L, "Test Exercise", 3, 1, 100.0, "Monday");
         ResponseEntity<Exercise> expectedResponse = new ResponseEntity<>(validExercise, HttpStatus.CREATED);
         when(exerciseService.addExercise(validExercise)).thenReturn(expectedResponse.getBody());
 
@@ -46,7 +46,7 @@ class ExerciseControllerTest {
     void updateExercise() {
         // Given
         long exerciseId = 1L;
-        Exercise updatedExercise = new Exercise(1L, "Updated Test Exercise", 2, 120.0, false, "Monday");
+        Exercise updatedExercise = new Exercise(1L, "Test Exercise", 3, 1, 100.0, "Monday");
         ResponseEntity<Exercise> expectedResponse = new ResponseEntity<>(updatedExercise, HttpStatus.OK);
         when(exerciseService.updateExercise(exerciseId, updatedExercise)).thenReturn(expectedResponse.getBody());
 
@@ -62,8 +62,8 @@ class ExerciseControllerTest {
     void getAllExercises() {
         // Given
         List<Exercise> exercises = new ArrayList<>();
-        exercises.add(new Exercise(1L, "Chest Press Machine", 12, 100.0, true, "Monday"));
-        exercises.add(new Exercise(2L, "Inclined Bench Press", 12, 30.0, false, "Monday"));
+        exercises.add(new Exercise(1L, "Test Exercise", 3, 1, 100.0, "Monday"));
+        exercises.add(new Exercise(2L, "Test Exercise", 3, 1, 100.0, "Monday"));
         when(exerciseService.getAllExercises()).thenReturn(exercises);
 
         // When
@@ -78,7 +78,7 @@ class ExerciseControllerTest {
     void getExerciseByName() {
         // Given
         String exerciseName = "Test Exercise";
-        List<Exercise> exercises = List.of(new Exercise(1L, "Test Exercise", 1, 100.0, true, "Monday"));
+        List<Exercise> exercises = List.of(new Exercise(1L, "Test Exercise", 3, 1, 100.0, "Monday"));
         when(exerciseService.getExerciseByName(exerciseName)).thenReturn(exercises);
 
         // When
