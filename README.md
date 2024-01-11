@@ -1,0 +1,1 @@
+This project acts as a microservice for its Angular counterpart (https://github.com/rafaelnieto96/gym-planning) and is composed of a single entity and a set of endpoints, allowing the reception of CRUD operations. 
